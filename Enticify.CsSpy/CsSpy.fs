@@ -74,13 +74,19 @@ module DictionaryVisualizer =
             //Bang it in to windows forms.
             let tv = new TreeView(Dock = DockStyle.Fill)
             tv.Nodes.Add(nodeTree) |> ignore
+            nodeTree.Expand()
             let form = new Form()
+            form.Width <- 1024 
+            form.Height <- 768 
+            //form.Opacity <- 0.83
             form.Controls.Add(tv)
+            form.Text <- "Enticify CsSpy Visualizer"
+            form.Icon <- new System.Drawing.Icon(System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("windows-7-tip.ico"))
             dvs.ShowDialog(form) |> ignore
             ()
 
     [<assembly:DebuggerVisualizer(typeof<DictionaryVisualizerDialog>, 
                                   typeof<DictionaryObjectSource>, 
                                   Target = typedefof<DictionaryClass>, 
-                                  Description = "Enticify CsSpy Dicitonary Visualizer")>]
+                                  Description = "Enticify CsSpy Visualizer")>]
     do()
