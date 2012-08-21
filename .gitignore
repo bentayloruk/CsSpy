@@ -28,6 +28,7 @@ x64/
 *.pgd
 *.rsp
 *.sbr
+*.swp
 *.tlb
 *.tli
 *.tlh
