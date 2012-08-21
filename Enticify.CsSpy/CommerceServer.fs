@@ -9,6 +9,6 @@ module Sl =
     let ofSeq (source:seq<'T>) =
         let sl = SimpleListClass()
         for x in source do
-            let (o:obj) = x :> obj
+            let o = x :> obj
             sl.Add(ref o)
         sl

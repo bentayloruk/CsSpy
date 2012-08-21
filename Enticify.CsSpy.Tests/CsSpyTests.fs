@@ -7,6 +7,9 @@ module DictionaryVisualizerTests =
     open Enticify.CsSpy
     open Enticify.CsSpy.DictionaryVisualizer
 
+    type CrashToString () =
+        override x.ToString() = failwith "Yikes, I crashed!"
+
     [<Fact>]
     let ``Does not crash with a bunch of the basic properties :)`` () =
 
@@ -20,6 +23,7 @@ module DictionaryVisualizerTests =
             dic.["someInt"] <- 1
             dic.["someString"] <- "This is some string of stuff"
             dic.["someBook"] <- false 
+            dic.["ihazcrashed"] <- CrashToString()
             dic
         dic.["subdic"] <- subDic
 

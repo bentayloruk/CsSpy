@@ -12,21 +12,28 @@ module DictionaryVisualizer =
         | Node of 'T * list<'T Tree>
         | Leaf of 'T
 
+    ///Maps a CS dictionary to our Tree type.
     let mapDictionaryToTree (dic:IDictionary) =
-        let rec inner (src:obj) = 
+        let rec inner (src:obj) desc = 
             match src with
             | :? IDictionary as dic ->
                 let children =  
                     [   for key in dic do
-                        yield inner dic.[key.ToString()] ]
-                Node("Dictionary", children)
+                        yield inner dic.[key.ToString()] (key.ToString()) ]
+                Node(desc + "<" + "IDictionary" + ">", children)
             | :? ISimpleList as sl -> 
                 let children =  
                     [   for item in sl do
-                        yield inner item  ]
-                Node("SimpleList", children)
-            | value -> Leaf(value.ToString()) 
-        inner dic 
+                        yield inner item ""  ]
+                Node(desc + "<" + "ISimpleList" + ">", children)
+            | value -> 
+                let sValue =
+                    try
+                        value.ToString()
+                    with
+                    | ex -> sprintf "Value fail: %s" ex.Message
+                Leaf(desc + "<" + value.GetType().Name + ">=" + sValue) 
+        inner dic "Root"
 
     ///The type that serializes the source data for debuggee to debugger transport.
     type DictionaryObjectSource() = 
