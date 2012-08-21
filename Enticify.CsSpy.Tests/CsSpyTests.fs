@@ -10,6 +10,13 @@ module DictionaryVisualizerTests =
     type CrashToString () =
         override x.ToString() = failwith "Yikes, I crashed!"
 
+    let randomDic () = 
+        let dic = DictionaryClass()
+        dic.["datetimenow"] <- System.DateTime.Now
+        dic.["ticks"] <- System.DateTime.Now.Ticks
+        dic.["guid"] <- System.Guid.NewGuid()
+        dic
+
     [<Fact>]
     let ``Does not crash with a bunch of the basic properties :)`` () =
 
@@ -23,6 +30,7 @@ module DictionaryVisualizerTests =
             dic.["someInt"] <- 1
             dic.["someString"] <- "This is some string of stuff"
             dic.["someBook"] <- false 
+            dic.["slofdics"] <- [randomDic();randomDic();randomDic();randomDic();randomDic();] |> Sl.ofSeq
             dic.["ihazcrashed"] <- CrashToString()
             dic
         dic.["subdic"] <- subDic

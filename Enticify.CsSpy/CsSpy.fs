@@ -23,8 +23,8 @@ module DictionaryVisualizer =
                 Node(desc + "<" + "IDictionary" + ">", children)
             | :? ISimpleList as sl -> 
                 let children =  
-                    [   for item in sl do
-                        yield inner item ""  ]
+                    [   for i in 0..sl.Count-1 do
+                        yield inner sl.[i] (i.ToString())  ]
                 Node(desc + "<" + "ISimpleList" + ">", children)
             | value -> 
                 let sValue =
