@@ -1,6 +1,6 @@
 # CsSpy
 
-Visual Studio Visualizer for use with Microsoft and Ascentium Commerce Server (2007 & 2009).  Focused on making pipeline component development debugging more pleasant.  For now.
+Visual Studio 2010 Visualizer for use with Microsoft and Ascentium Commerce Server (2007 & 2009).  Focused on making pipeline component development debugging more pleasant.  For now.
 
 Written by [@enticify](http://twitter.com/enticify) and used in the production of [best discount engine for Commerce Server.](http://www.enticify.com/)
 
