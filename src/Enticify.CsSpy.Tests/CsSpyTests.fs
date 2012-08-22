@@ -7,38 +7,50 @@ module DictionaryVisualizerTests =
     open Enticify.CsSpy
     open Enticify.CsSpy.DictionaryVisualizer
 
+    //Test type that will throw exception when we call ToString().
     type CrashToString () =
         override x.ToString() = failwith "Yikes, I crashed!"
 
+    //Operator shortcut for ":> obj"
+    let inline (!*) (item:#obj) = item :> obj
+
+    //Shows the Visualizer in the VizDevHost.
+    let visualize dic =
+        let vizHost = VisualizerDevelopmentHost (dic, typeof<DictionaryVisualizerDialog>, typeof<DictionaryObjectSource>)
+        vizHost.ShowVisualizer()
+
     let randomDic () = 
-        let dic = DictionaryClass()
-        dic.["datetimenow"] <- System.DateTime.Now
-        dic.["ticks"] <- System.DateTime.Now.Ticks
-        dic.["guid"] <- System.Guid.NewGuid()
-        dic
+        Dic.ofList [
+            "datetimenow", !* System.DateTime.Now;
+            "ticks", !* System.DateTime.Now.Ticks;
+            "guid", !* System.Guid.NewGuid(); ]
+
+    //NOTE:  These tests are basic integration tests.  Not unit tests at the mo.
+
+    [<Fact>]
+    let ``Creates nodes for IEnumerable values`` () =
+        let dic = Dic.ofList ["items", ["1";"2";"3"]]
+        let tree = mapDictionaryToTree dic
+        visualize dic
+        ()
 
     [<Fact>]
     let ``Does not crash with a bunch of the basic properties :)`` () =
-
-        let dic = DictionaryClass()
-        dic.["name"] <- "ben"
-        dic.["slints"] <- [1;5;9;15] |> Sl.ofSeq
-        dic.["iamnull"] <- null  
-        dic.["iamdbnull"] <- System.DBNull.Value 
-        let subDic = 
-            let dic = DictionaryClass()
-            dic.["someInt"] <- 1
-            dic.["someString"] <- "This is some string of stuff"
-            dic.["someBook"] <- false 
-            dic.["slofdics"] <- [randomDic();randomDic();randomDic();randomDic();randomDic();] |> Sl.ofSeq
-            dic.["ihazcrashed"] <- CrashToString()
-            dic
-        dic.["subdic"] <- subDic
-
-        for key in dic do
-            printfn "%s : %s" (key.ToString()) (dic.[key.ToString()].ToString())
-
-        let vizHost = VisualizerDevelopmentHost (dic, typeof<DictionaryVisualizerDialog>, typeof<DictionaryObjectSource>)
-        vizHost.ShowVisualizer()
+        let dic = 
+           Dic.ofList [ 
+                "name", !* "ben";
+                "slints", !* ([1;5;9;15] |> Sl.ofSeq);
+                "iamnull", null;
+                "iamdbnull", !* System.DBNull.Value;
+                "subdic", !* (Dic.ofList 
+                    [
+                        "someInt", !* 1;
+                        "someString", !* "This is some string of stuff";
+                        "someBook", !* false;
+                        "slofdics", !* ([for i in 1..5 do yield randomDic()] |> Sl.ofSeq);
+                        "ihazcrashed", !* CrashToString();
+                    ])
+            ]
+        visualize dic
         ()
 

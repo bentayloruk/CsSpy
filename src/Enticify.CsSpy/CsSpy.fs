@@ -26,6 +26,13 @@ module DictionaryVisualizer =
                     [   for i in 0..sl.Count-1 do
                         yield inner sl.[i] (i.ToString())  ]
                 Node(desc + "<" + "ISimpleList" + ">", children)
+            | :? System.Collections.IEnumerable as items -> 
+                let children =  
+                    items 
+                    |> Seq.cast<obj>
+                    |> Seq.mapi (fun i item -> inner item (i.ToString()))
+                    |> List.ofSeq
+                Node(desc + "<" + items.GetType().Name + ">", children)
             | value -> 
                 let sValue =
                     try
