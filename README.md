@@ -6,8 +6,8 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 
 ## Features
 
-* [DictionaryClass](http://msdn.microsoft.com/en-us/library/bb509189) visualizer.
-* [SimpleListClass](http://msdn.microsoft.com/en-us/library/microsoft.commerceserver.runtime.simplelistclass.aspx) visualizer.
+* [DictionaryClass](http://msdn.microsoft.com/en-us/library/bb509189) visualizer. [Screenshot](https://github.com/enticify/CsSpy/blob/master/README.md#dictionaryclass-visualizer-window).
+* [SimpleListClass](http://msdn.microsoft.com/en-us/library/microsoft.commerceserver.runtime.simplelistclass.aspx) visualizer.  [Screenshot](https://github.com/enticify/CsSpy/blob/master/README.md#simplelistclass-visualizer-window).
 * Want more?  [Raise feature requests.](https://github.com/enticify/CsSpy/issues)
 
 ## Documentation
