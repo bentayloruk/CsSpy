@@ -20,7 +20,8 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 ## Installation
 
 0. **Super-alpha-ctp version 0.1.  Proceed at your own risk :)**
-1. Download the visualizer binaries.
+1. Download the [CsSpy release zip.](https://github.com/enticify/CsSpy/raw/master/download/CsSpy-0.1.zip)
+2. Be good and virus scan etc.
 2. Unzip them to `%USERPROFILE%\Documents\Visual Studio 2010\Visualizers`
 3. DEBUG!!!
 
