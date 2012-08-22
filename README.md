@@ -1,9 +1,10 @@
 # CsSpy
 
-CsSpy is a Visual Studio Visualizer for instances of the Commerce Server [DictionaryClass](http://msdn.microsoft.com/en-us/library/bb509189).  It was built for use in building the [Enticify](http://www.enticify.com/) Commerce Server Connector.
+Visual Studio Visualizer for use with Microsoft and Ascentium Commerce Server (2007 & 2009).  Focused on making pipeline component development debugging more pleasant.  For now.
 
-CsSpy is source only at the moment.  A release will be made soon.
+## Features
 
-CsSpy banishes the crappy COM interop debugging experience and shows you this instead:
+* [DictionaryClass](http://msdn.microsoft.com/en-us/library/bb509189) visualizer.
+* [SimpleListClass](http://msdn.microsoft.com/en-us/library/microsoft.commerceserver.runtime.simplelistclass.aspx] visualizer.
 
 ![CsSpy Visualizer window](https://raw.github.com/enticify/CsSpy/master/assets/cs-spy.png)
