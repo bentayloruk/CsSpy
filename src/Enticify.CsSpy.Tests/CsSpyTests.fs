@@ -15,8 +15,8 @@ module DictionaryVisualizerTests =
     let inline (!*) (item:#obj) = item :> obj
 
     //Shows the Visualizer in the VizDevHost.
-    let visualize dic =
-        let vizHost = VisualizerDevelopmentHost (dic, typeof<DictionaryVisualizerDialog>, typeof<DictionaryObjectSource>)
+    let visualize item =
+        let vizHost = VisualizerDevelopmentHost (item, typeof<DictionaryVisualizerDialog>, typeof<TreeViewObjectSource>)
         vizHost.ShowVisualizer()
 
     let randomDic () = 
@@ -28,9 +28,16 @@ module DictionaryVisualizerTests =
     //NOTE:  These tests are basic integration tests.  Not unit tests at the mo.
 
     [<Fact>]
+    let ``Maps SimpleListClass`` () =
+        let sl = Sl.ofSeq ["ben";"mike";]
+        let tree = mapObjectToTree sl 
+        visualize sl 
+        ()
+
+    [<Fact>]
     let ``Creates nodes for IEnumerable values`` () =
         let dic = Dic.ofList ["items", ["1";"2";"3"]]
-        let tree = mapDictionaryToTree dic
+        let tree = mapObjectToTree dic
         visualize dic
         ()
 

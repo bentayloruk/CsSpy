@@ -13,7 +13,7 @@ module DictionaryVisualizer =
         | Leaf of 'T
 
     ///Maps a CS dictionary to our Tree type.
-    let mapDictionaryToTree (dic:IDictionary) =
+    let mapObjectToTree item =
         let rec inner (src:obj) desc = 
             match src with
             | :? IDictionary as dic ->
@@ -40,18 +40,19 @@ module DictionaryVisualizer =
                     with
                     | ex -> sprintf "Value fail: %s" ex.Message
                 Leaf(desc + "<" + value.GetType().Name + ">=" + sValue) 
-        inner dic "Root"
+        inner item "Root"
 
     ///The type that serializes the source data for debuggee to debugger transport.
-    type DictionaryObjectSource() = 
+    type TreeViewObjectSource() = 
         inherit VisualizerObjectSource() 
         override this.GetData(target : obj, outgoingData : System.IO.Stream) = 
             let formatter = BinaryFormatter() 
             match target with
-            | :? DictionaryClass as dic -> 
-                let data = mapDictionaryToTree dic
+            | :? DictionaryClass | :? SimpleListClass as item -> 
+                let data = mapObjectToTree item 
                 formatter.Serialize(outgoingData, data) 
-            | _ -> formatter.Serialize(outgoingData, "No data.")
+            | null -> failwith "Visualizer target object is null."//Should not happen.
+            | x -> failwith (sprintf "Visualizer target object type %s not supported." (x.GetType().Name))//Should not happen.
             ()
 
     ///The type that visualizes our data.
@@ -93,7 +94,11 @@ module DictionaryVisualizer =
             ()
 
     [<assembly:DebuggerVisualizer(typeof<DictionaryVisualizerDialog>, 
-                                  typeof<DictionaryObjectSource>, 
+                                  typeof<TreeViewObjectSource>, 
                                   Target = typedefof<DictionaryClass>, 
-                                  Description = "Enticify CsSpy Visualizer")>]
+                                  Description = "CsSpy DictionaryClass Visualizer")>]
+    [<assembly:DebuggerVisualizer(typeof<DictionaryVisualizerDialog>, 
+                                  typeof<TreeViewObjectSource>, 
+                                  Target = typedefof<SimpleListClass>, 
+                                  Description = "CsSpy SimpleListClass Visualizer")>]
     do()
