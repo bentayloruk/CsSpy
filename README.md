@@ -8,14 +8,13 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 
 * [DictionaryClass](http://msdn.microsoft.com/en-us/library/bb509189) visualizer.
 * [SimpleListClass](http://msdn.microsoft.com/en-us/library/microsoft.commerceserver.runtime.simplelistclass.aspx) visualizer.
+* Want more?  [Raise feature requests.](https://github.com/enticify/CsSpy/issues)
 
 ## Documentation
 
-* Install CsSpy.
-* Hover mouse over DictionaryClass or SimpleListClass instances in the VS2010 debugger.
-* Click magnifying glass.
-
-[Raise issues and feature requests.](https://github.com/enticify/CsSpy/issues)
+* Hover mouse over `DictionaryClass` or `SimpleListClass` instances in the VS2010 debugger.
+* Click the little magnifying glass.
+* Feel the wonder of your data!
 
 ## Installation
 
@@ -24,6 +23,10 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 2. Be good and virus scan it (I did).
 2. Unzip them to `%USERPROFILE%\Documents\Visual Studio 2010\Visualizers`.  *Per user visualizer location.*
 3. DEBUG!!! **Visual Studio 2010 only.** [*Want 2012 support?*](https://github.com/enticify/CsSpy/issues/2)
+
+## Problems ?
+
+[Raise issues.](https://github.com/enticify/CsSpy/issues)
 
 ## Screen Shots
 
