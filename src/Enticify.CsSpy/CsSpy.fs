@@ -20,19 +20,23 @@ module DictionaryVisualizer =
                 let children =  
                     [   for key in dic do
                         yield inner dic.[key.ToString()] (key.ToString()) ]
-                Node(desc + "<" + "IDictionary" + ">", children)
+                let text = desc + "<IDictionary>"
+                if children.Length = 0 then Leaf(text + "=empty") else Node(text, children)
             | :? ISimpleList as sl -> 
                 let children =  
                     [   for i in 0..sl.Count-1 do
                         yield inner sl.[i] (i.ToString())  ]
-                Node(desc + "<" + "ISimpleList" + ">", children)
-            | :? System.Collections.IEnumerable as items -> 
+                let text = desc + "<ISimpleList>"
+                if children.Length = 0 then Leaf(text + "=empty") else Node(text, children)
+            //Enumerate enumerables (but not strings or we get chars in tree view).
+            | :? System.Collections.IEnumerable as items when items.GetType() <> typeof<System.String> -> 
                 let children =  
                     items 
                     |> Seq.cast<obj>
                     |> Seq.mapi (fun i item -> inner item (i.ToString()))
                     |> List.ofSeq
-                Node(desc + "<" + items.GetType().Name + ">", children)
+                let text = desc + "<" + items.GetType().Name + ">"
+                if children.Length = 0 then Leaf(text + "=empty") else Node(text, children)
             | value -> 
                 let sValue =
                     try
@@ -40,7 +44,7 @@ module DictionaryVisualizer =
                     with
                     | ex -> sprintf "Value fail: %s" ex.Message
                 Leaf(desc + "<" + value.GetType().Name + ">=" + sValue) 
-        inner item "Root"
+        inner item ""
 
     ///The type that serializes the source data for debuggee to debugger transport.
     type TreeViewObjectSource() = 
