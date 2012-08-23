@@ -16,6 +16,8 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 * Click the little magnifying glass.
 * Feel the wonder of your data!
 
+[Release Notes](https://github.com/enticify/CsSpy/blob/master/README.md#release-notes)
+
 ## Installation
 
 0. **Super-alpha-ctp version 0.2.  Proceed at your own risk :)**
