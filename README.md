@@ -43,11 +43,11 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 
 ## Release Notes
 
-### 0.2
+### 0.2 Minor non-intersting update
 
 * Change:  Added exception handler in case of data serialization timeout.
 
-### 0.1 Initial Release
+### 0.1 Initial release
 
 * Feature:  DictionaryClass Visualizer.
 * Feature:  SimpleListClass Visualizer.
