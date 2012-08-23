@@ -65,10 +65,13 @@ module DictionaryVisualizer =
         override x.Show(dvs:IDialogVisualizerService, vop:IVisualizerObjectProvider) = 
             //Get out lovely tree data...
             let treeData = 
-                let data = vop.GetObject()
-                match data with
-                | :? Tree<string> as tree -> tree
-                | _ -> Leaf("No data.")
+                try
+                    let data = vop.GetObject()
+                    match data with
+                    | :? Tree<string> as tree -> tree
+                    | _ -> Leaf("No data.")
+                with
+                | ex -> Leaf(sprintf "CsSpy #FAIL - %s" ex.Message)
             //Create TreeNode hierarchy
             let nodeTree = 
                 let rec buildTreeView (node:TreeNode) (tree:Tree<string>) = 
