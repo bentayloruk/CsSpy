@@ -18,8 +18,8 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 
 ## Installation
 
-0. **Super-alpha-ctp version 0.1.  Proceed at your own risk :)**
-1. Download [CsSpy-0.1.zip](https://dl.dropbox.com/s/pufnkchsjx600ah/CsSpy-0.1.zip?dl=1).
+0. **Super-alpha-ctp version 0.2.  Proceed at your own risk :)**
+1. Download [CsSpy-0.2.zip](https://dl.dropbox.com/s/0u20b6f43qnlvqs/CsSpy-0.2.zip?dl=1).
 2. Be good and virus scan it (I did).
 2. **Important: Right click the zip -> click Properties -> click Unblock -> click OK.**  Otherwise, VS wont load it.
 2. Unzip the files and copy to `%USERPROFILE%\Documents\Visual Studio 2010\Visualizers`.  *Per user visualizer location.*
