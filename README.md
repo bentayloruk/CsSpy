@@ -27,7 +27,7 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 
 ## Problems ?
 
-* `System.NotSupportedException: An attempt was made...` -> You probably missed the Unblock step during installation.
+* `System.NotSupportedException: An attempt was made...`? - You probably missed the Unblock step during installation.
 * [Raise issues.](https://github.com/enticify/CsSpy/issues)
 
 ## Screen Shots
