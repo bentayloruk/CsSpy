@@ -41,6 +41,16 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 ### SimpleListClass Visualizer Window
 ![CsSpy SimpleListClass Visualizer Window](https://raw.github.com/enticify/CsSpy/master/assets/csspy-simplelist.png)
 
+## Release Notes
+
+### 0.2
+
+* Change:  Added exception handler in case of data serialization timeout.
+
+### 0.1 Initial Release
+
+* Feature:  DictionaryClass Visualizer.
+* Feature:  SimpleListClass Visualizer.
 
 ## License
 
