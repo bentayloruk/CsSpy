@@ -25,10 +25,10 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 2. Unzip the files and copy to `%USERPROFILE%\Documents\Visual Studio 2010\Visualizers`.  *Per user visualizer location.*
 3. DEBUG AWAY!!! **Visual Studio 2010 only.** [*Want 2012 support?*](https://github.com/enticify/CsSpy/issues/2)
 
-## Problems?
+## Known Issues
 
-* `System.NotSupportedException: An attempt was made...`? - You probably missed the Unblock step during installation.
 * `Funtion evaluation timed out` - [Workaround and discussion here](https://github.com/enticify/CsSpy/issues/5).
+* `System.NotSupportedException: An attempt was made...`? - You probably missed the Unblock step during installation.
 
 [Raise other issues.](https://github.com/enticify/CsSpy/issues)
 
