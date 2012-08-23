@@ -28,6 +28,7 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 ## Problems ?
 
 * `System.NotSupportedException: An attempt was made...`? - You probably missed the Unblock step during installation.
+* `Funtion evaluation timed out` - [Please comment here if you have this issue](https://github.com/enticify/CsSpy/issues/5).
 * [Raise issues.](https://github.com/enticify/CsSpy/issues)
 
 ## Screen Shots
