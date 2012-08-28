@@ -2,6 +2,9 @@
 [Bb]in/
 [Oo]bj/
 
+# Build output etc
+build/
+
 # mstest test results
 TestResults
 
