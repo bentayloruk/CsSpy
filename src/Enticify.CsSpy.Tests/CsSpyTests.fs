@@ -12,11 +12,6 @@ module DictionaryVisualizerTests =
     type ToStringException() =
         override x.ToString() = failwith "Yikes, I crashed!"
 
-    //Test type that will throw exception when we call ToString().
-    type ToStringTimeOut() =
-        override x.ToString() = 
-            Thread.Sleep(20000)
-            ""
     //Operator shortcut for ":> obj"
     let inline (!*) (item:#obj) = item :> obj
 
@@ -38,12 +33,6 @@ module DictionaryVisualizerTests =
         let sl = Sl.ofSeq ["ben";"mike";]
         let tree = mapObjectToTree sl 
         visualize sl 
-        ()
-
-    [<Fact>]
-    let ``Simulates function timeout`` () =
-        let dic = Dic.ofList ["timecrash", ToStringTimeOut()]
-        visualize dic 
         ()
 
     [<Fact>]
