@@ -54,7 +54,7 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 
 ## Release Notes
 
-### 0.2 Minor non-intersting update
+### 0.2 Minor non-interesting update
 
 * Change:  Added exception handler in case of data serialization timeout.
 
