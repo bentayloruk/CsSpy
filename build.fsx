@@ -29,6 +29,7 @@ Run "Clean"
 //Once per build configuration tasks.
 for buildConfigName in buildConfigNames do
     let name taskName = taskName + buildConfigName
+    let assConfiguration = if buildConfigName.Contains("Debug") then "Debug" else "Release"
     //Build
     let buildTaskName = name "Build"
     Target buildTaskName (fun _ ->
@@ -42,9 +43,12 @@ for buildConfigName in buildConfigNames do
             {p with
                 CodeLanguage = FSharp;
                 AssemblyVersion = version;
-                AssemblyTitle = "CsSpy by Enticify - www.enticify.com";
+                AssemblyTitle = "CsSpy for Commerce Server";
                 AssemblyCopyright = "Copyright Shape Factory Limited " + DateTime.Now.Year.ToString();
+                AssemblyCompany = "Shape Factory Limited";
                 AssemblyDescription = "Visual Studio Debug Visualizers for Commerce Server (" + buildConfigName + ").";
+                AssemblyProduct = "CsSpy";
+                AssemblyConfiguration = assConfiguration 
                 Guid = "F3E64731-89DF-4D40-8631-C32FD278A476";
                 OutputFileName = @".\src\Enticify.CsSpy\AssemblyInfo.fs"})
     )

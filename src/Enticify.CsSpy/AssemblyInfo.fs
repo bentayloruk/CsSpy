@@ -22,7 +22,11 @@ exception ReturnNoneException183c26a427ae489c8fd92ec21a0c9a59
 
 [<assembly: AssemblyDescription ("Visual Studio Debug Visualizers for Commerce Server (Release2012).")>]
 
-[<assembly: AssemblyProduct ("CsSpy by Enticify - www.enticify.com")>]
+[<assembly: AssemblyConfiguration ("Release")>]
+
+[<assembly: AssemblyCompany ("Shape Factory Limited")>]
+
+[<assembly: AssemblyProduct ("CsSpy")>]
 
 [<assembly: AssemblyCopyright ("Copyright Shape Factory Limited 2012")>]
 
