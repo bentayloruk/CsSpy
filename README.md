@@ -15,7 +15,7 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 * Hover mouse over `DictionaryClass` or `SimpleListClass` instances in the VS2010 debugger.
 * Click the little magnifying glass.
 * Feel the wonder of your data!
-* **If you get function time out issues, add the item you wish to visualize to a Watch first and then visualize it.  [Read this for more info.](https://github.com/enticify/CsSpy/issues/5)**
+* *If you get function time out issues, add the item you wish to visualize to a Watch first and then visualize it.  [Read this for more info.](https://github.com/enticify/CsSpy/issues/5)*
 
 [Release Notes](https://github.com/enticify/CsSpy/blob/master/README.md#release-notes)
 
