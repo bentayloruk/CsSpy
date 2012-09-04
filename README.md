@@ -2,13 +2,15 @@
 
 Visual Studio 2010 & 2012 Visualizer for use with Microsoft and Ascentium Commerce Server (2007 & 2009).  Focused on making pipeline component development debugging more pleasant.  For now.
 
-Written by [@enticify](http://twitter.com/enticify) and used in the production of [best discount engine for Commerce Server.](http://www.enticify.com/)
-
 ## Features
 
 * [DictionaryClass](http://msdn.microsoft.com/en-us/library/bb509189) visualizer. [Screenshot](https://github.com/enticify/CsSpy/blob/master/README.md#dictionaryclass-visualizer-window).
 * [SimpleListClass](http://msdn.microsoft.com/en-us/library/microsoft.commerceserver.runtime.simplelistclass.aspx) visualizer.  [Screenshot](https://github.com/enticify/CsSpy/blob/master/README.md#simplelistclass-visualizer-window).
 * Want more?  [Raise feature requests.](https://github.com/enticify/CsSpy/issues)
+
+## Authors
+
+Written by [@enticify](http://twitter.com/enticify) and used in the making of [Enticify](http://www.enticify.com/) (discount engine for Commerce Server).
 
 ## Documentation
 
@@ -62,6 +64,7 @@ Written by [@enticify](http://twitter.com/enticify) and used in the production o
 
 * Feature:  DictionaryClass Visualizer.
 * Feature:  SimpleListClass Visualizer.
+
 
 ## License
 
